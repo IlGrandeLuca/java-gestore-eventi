@@ -77,7 +77,7 @@ public class Main {
 
 			System.out.print("Do you want to book? Enter ('s'/'n'):");
 			String check = in.nextLine();
-			
+
 			// Input control
 			switch (check) {
 			case "s":
@@ -89,7 +89,7 @@ public class Main {
 			default:
 				toDo = false;
 			}
-			
+
 			// Add reservation
 			if (toDo) {
 				System.out.println("how many reservations do you want to make?");
@@ -110,7 +110,7 @@ public class Main {
 
 			System.out.print("Do you want to cancel a reservation? Enter ('s'/'n'):");
 			check = in.nextLine();
-			
+
 			// Input control
 			switch (check) {
 			case "s":

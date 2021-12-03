@@ -20,7 +20,6 @@ public class Eventi {
 	 */
 	public Eventi(String title, LocalDate date, int totalSeats) throws IllegalArgumentException {
 		if (isValidDate(date) || isValidTotalSeats(totalSeats)) {
-			this.title = title;
 			if (isValidDate(date))
 				this.date = date;
 			else
@@ -29,6 +28,7 @@ public class Eventi {
 				this.totalSeats = totalSeats;
 			else
 				throw new IllegalArgumentException("Invalid number of seats");
+			this.title = title;
 			this.reservedSeats = PREDEF_RESERVED;
 		} else
 			throw new IllegalArgumentException("Invalid values");
@@ -78,17 +78,19 @@ public class Eventi {
 
 	// Public methods
 	public int reserve() throws UnsupportedOperationException {
+		int r = reservedSeats += 1;
 		if (!isValidDate(date) || reservedSeats > totalSeats)
 			throw new UnsupportedOperationException("There is too much reservations");
 		else
-			return reservedSeats += 1;
+			return r;
 	}
 
 	public int cancel() throws UnsupportedOperationException {
+		int r = reservedSeats -= 1;
 		if (!isValidDate(date) || reservedSeats <= PREDEF_RESERVED)
 			throw new UnsupportedOperationException("Not possible to do");
 		else
-			return reservedSeats -= 1;
+			return r;
 	}
 
 	@Override
