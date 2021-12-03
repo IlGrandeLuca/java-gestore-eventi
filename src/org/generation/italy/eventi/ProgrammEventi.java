@@ -26,25 +26,29 @@ public class ProgrammEventi {
 		events = new ArrayList<Evento>();
 	}
 
+	// Add event
 	public void addEvento(Evento events) {
 		this.events.add(events);
 	}
 
+	// Return string of all events in a specific day
 	public String dateOf(LocalDate date) {
 		String dateListString = null;
 		for (Evento item : events) {
 			if (item.getDate() == date) {
 				String space = events.size() == 1 ? "" : " - ";
-				dateListString += item.toString() + space;
+				dateListString += item.getTitle() + space;
 			}
 		}
 		return dateListString;
 	}
 
+	// Return size of List<Evento>
 	public int sizeOf() {
 		return events.size();
 	}
 
+	// Remove all events
 	public boolean removeAll(List<Evento> events) {
 		boolean isMod = false;
 		Iterator<Evento> iterator = events.iterator();

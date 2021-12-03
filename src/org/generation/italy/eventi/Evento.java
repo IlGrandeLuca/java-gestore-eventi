@@ -95,8 +95,7 @@ public class Evento implements Comparable<Evento> {
 
 	@Override
 	public String toString() {
-		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return "Evento [title= " + title + ", date= " + df.format(date) + "]";
+		return "Evento [title= " + title + ", date= " + formattedDate() + "]";
 	}
 
 	@Override
@@ -113,6 +112,12 @@ public class Evento implements Comparable<Evento> {
 
 	private boolean isValidTotalSeats(int totalSeats) {
 		return totalSeats > 0;
+	}
+
+	// Return formatted date
+	protected String formattedDate() {
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return df.format(date);
 	}
 
 }
