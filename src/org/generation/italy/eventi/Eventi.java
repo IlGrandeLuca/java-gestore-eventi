@@ -19,7 +19,7 @@ public class Eventi {
 	 * @param totalSeats
 	 */
 	public Eventi(String title, LocalDate date, int totalSeats) throws IllegalArgumentException {
-		if (isValidDate(date) && isValidTotalSeats(totalSeats)) {
+		if (isValidDate(date) || isValidTotalSeats(totalSeats)) {
 			this.title = title;
 			if (isValidDate(date))
 				this.date = date;
@@ -77,14 +77,14 @@ public class Eventi {
 	}
 
 	// Public methods
-	public int reserve() {
-		if (!isValidDate(date) || reservedSeats >= totalSeats)
-			throw new UnsupportedOperationException("Not possible to do");
+	public int reserve() throws UnsupportedOperationException {
+		if (!isValidDate(date) || reservedSeats > totalSeats)
+			throw new UnsupportedOperationException("There is too much reservations");
 		else
 			return reservedSeats += 1;
 	}
 
-	public int cancel() {
+	public int cancel() throws UnsupportedOperationException {
 		if (!isValidDate(date) || reservedSeats <= PREDEF_RESERVED)
 			throw new UnsupportedOperationException("Not possible to do");
 		else
