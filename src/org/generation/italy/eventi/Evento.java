@@ -3,7 +3,7 @@ package org.generation.italy.eventi;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Evento {
+public class Evento implements Comparable<Evento> {
 	// Constants
 	private final static int PREDEF_RESERVED = 0;
 
@@ -96,7 +96,13 @@ public class Evento {
 	@Override
 	public String toString() {
 		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return "Eventi [title=" + title + ", date=" + df.format(date) + "]";
+		return "Evento [title= " + title + ", date= " + df.format(date) + "]";
+	}
+
+	@Override
+	public int compareTo(Evento e) {
+		// TODO Auto-generated method stub
+		return getDate().compareTo(e.getDate());
 	}
 
 	// Private methods
@@ -108,4 +114,5 @@ public class Evento {
 	private boolean isValidTotalSeats(int totalSeats) {
 		return totalSeats > 0;
 	}
+
 }
