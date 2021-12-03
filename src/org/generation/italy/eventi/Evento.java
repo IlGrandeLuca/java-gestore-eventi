@@ -3,7 +3,7 @@ package org.generation.italy.eventi;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Eventi {
+public class Evento {
 	// Constants
 	private final static int PREDEF_RESERVED = 0;
 
@@ -18,7 +18,7 @@ public class Eventi {
 	 * @param date
 	 * @param totalSeats
 	 */
-	public Eventi(String title, LocalDate date, int totalSeats) throws IllegalArgumentException {
+	public Evento(String title, LocalDate date, int totalSeats) throws IllegalArgumentException {
 		if (isValidDate(date) || isValidTotalSeats(totalSeats)) {
 			if (isValidDate(date))
 				this.date = date;

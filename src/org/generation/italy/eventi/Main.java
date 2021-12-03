@@ -71,7 +71,7 @@ public class Main {
 
 		// Instance of Eventi
 		try {
-			Eventi myEvent = new Eventi(title, date, totSeats);
+			Evento myEvent = new Evento(title, date, totSeats);
 			int numRes = 0;
 			boolean toDo = false;
 
@@ -140,6 +140,8 @@ public class Main {
 				System.out.println("Reserved seats: " + myEvent.getReservedSeats());
 				System.out.println("Free seats: " + (myEvent.getTotalSeats() - myEvent.getReservedSeats()));
 			}
+
+			System.out.println(myEvent.toString());
 
 		} catch (IllegalArgumentException iae) {
 			System.out.println("Exception: " + iae.getMessage());
