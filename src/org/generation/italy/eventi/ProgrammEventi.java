@@ -33,10 +33,12 @@ public class ProgrammEventi {
 
 	// Return string of all events in a specific day
 	public String dateOf(LocalDate date) {
-		String dateListString = null;
+		String dateListString = "";
 		for (Evento item : events) {
 			if (item.getDate() == date) {
-				String space = events.size() == 1 ? "" : " - ";
+				int i = 0;
+				i++;
+				String space = sizeOf() == i ? "" : " - ";
 				dateListString += item.getTitle() + space;
 			}
 		}
@@ -49,7 +51,7 @@ public class ProgrammEventi {
 	}
 
 	// Remove all events
-	public boolean removeAll(List<Evento> events) {
+	public boolean removeAll() {
 		boolean isMod = false;
 		Iterator<Evento> iterator = events.iterator();
 		while (iterator.hasNext()) {
@@ -63,12 +65,14 @@ public class ProgrammEventi {
 
 	@Override
 	public String toString() {
-		String dateListString = null;
+		String dateListString = "";
 		Collections.sort(events);
 		for (Evento item : events) {
-			String space = events.size() == 1 ? "" : "\n";
-			dateListString += item.getDate() + " - " + item.getTitle() + space;
+			int i = 0;
+			i++;
+			String space = sizeOf() == i ? "" : "\n";
+			dateListString += "Events: " + item.getDate() + " - " + item.getTitle() + space;
 		}
-		return "ProgrammEventi " + title + "\n" + "events= " + dateListString + "]";
+		return "ProgrammEventi " + title + "\n" + dateListString;
 	}
 }
