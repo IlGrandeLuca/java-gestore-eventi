@@ -35,7 +35,7 @@ public class ProgrammEventi {
 	public String dateOf(LocalDate date) {
 		String dateListString = "";
 		for (Evento item : events) {
-			if (item.getDate() == date) {
+			if (item.getDate().equals(date)) {
 				int i = 0;
 				i++;
 				String space = sizeOf() == i ? "" : " - ";
